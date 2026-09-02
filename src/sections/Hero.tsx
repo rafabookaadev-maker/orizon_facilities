@@ -16,37 +16,53 @@ export function Hero() {
   const whatsappHref = buildWhatsAppLink(site.whatsappMensagemPadrao);
 
   return (
-    <section id="topo" className="relative flex min-h-svh flex-col overflow-hidden bg-navy">
+    <section id="topo" className="relative flex flex-col overflow-hidden bg-navy sm:min-h-svh">
+      {/*
+        object-[25%_center]: a foto tem duas pessoas centralizadas na
+        composição original. Se o corte automático (object-cover) usasse o
+        centro padrão, elas cairiam bem atrás do bloco de texto (que fica à
+        esquerda). Ancorando o corte mais para a esquerda da imagem, as
+        pessoas acabam aparecendo mais à direita do enquadramento visível —
+        fora da área do texto, em qualquer proporção de tela.
+      */}
       <img
         src="/images/hero-1600.webp"
         srcSet="/images/hero-800.webp 800w, /images/hero-1600.webp 1600w"
         sizes="100vw"
         alt=""
         fetchPriority="high"
-        className="ken-burns absolute inset-0 h-full w-full object-cover"
+        className="ken-burns absolute inset-0 h-full w-full object-cover object-[25%_center]"
       />
       <div
         className="absolute inset-0 bg-gradient-to-t from-navy via-navy/80 to-navy/50"
         aria-hidden="true"
       />
+      {/* Reforço horizontal: escurece mais o lado do texto (esquerda) e
+          deixa o lado da foto (direita, onde ficam as pessoas) mais claro. */}
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/35 via-55% to-transparent"
+        aria-hidden="true"
+      />
 
       {/*
-        items-start no mobile: em viewports baixos e estreitos o conteúdo já
-        ocupa quase toda a altura disponível, então centralizar verticalmente
-        cortaria o topo do texto. A partir de `sm` sobra altura de sobra para
-        centralizar. (O WhatsAppFab não é problema aqui: ele só aparece depois
-        que o hero sai da tela — ver WhatsAppFab.tsx.)
+        min-h-svh só a partir de `sm`: no mobile a seção não força altura de
+        tela cheia, então o hero fica do tamanho do próprio conteúdo — sem
+        isso, sobrava um vão vazio entre o último botão e o letreiro em
+        telas baixas. items-start (mobile) evita cortar o topo do texto;
+        items-center (sm+) centraliza dentro da altura cheia da viewport.
+        (O WhatsAppFab não é problema aqui: ele só aparece depois que o hero
+        sai da tela — ver WhatsAppFab.tsx.)
       */}
       <div className="relative flex flex-1 items-start sm:items-center">
         <div className="mx-auto w-full max-w-6xl px-6 pt-10 pb-2 sm:py-24">
           <div className="max-w-2xl border-l-4 border-gold pl-6">
             <p className="mb-2 font-display text-sm font-bold tracking-[0.25em] text-gold uppercase">
-              Terceirização condominial
+              Serviços Condominiais
             </p>
 
             <h1 className="font-display text-3xl leading-[1.05] font-bold text-offwhite sm:text-5xl sm:leading-[1.08] md:text-6xl">
-              Seu condomínio operando sem falhas —{' '}
-              <span className="text-gold">sem passivo trabalhista</span> na sua gestão.
+              Seu condomínio em boas mãos.{' '}
+              <span className="text-gold">Nós cuidamos de toda a gestão.</span>
             </h1>
 
             <p className="mt-3 max-w-xl text-base text-offwhite/85 sm:mt-6 sm:text-lg">

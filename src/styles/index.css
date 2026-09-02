@@ -123,14 +123,17 @@
 }
 
 /*
- * Letreiro/marquee dos serviços (direita → esquerda), contínuo. O conteúdo
- * é duplicado uma vez no JSX (ver ServiceMarquee.tsx) para o loop ficar sem
- * costura: ao mover -50% a trilha, a segunda cópia assume exatamente onde a
- * primeira estava.
+ * Letreiro/marquee dos serviços (direita → esquerda), contínuo. Cada metade
+ * da trilha repete a lista de serviços 8x (ver REPETICOES_POR_METADE em
+ * ServiceMarquee.tsx) para garantir que uma metade sozinha já seja mais
+ * larga que qualquer viewport — sem isso, em telas largas sobrava um vão
+ * vazio entre um ciclo e o próximo. A duração (176s) é 8x a duração original
+ * (22s) para manter a mesma velocidade de rolagem agora que o conteúdo é 8x
+ * maior; se parecer rápido/lento demais, ajuste os dois em conjunto.
  */
 @media (prefers-reduced-motion: no-preference) {
   .marquee-track {
-    animation: marquee 22s linear infinite;
+    animation: marquee 176s linear infinite;
   }
 
   .marquee-track:hover {

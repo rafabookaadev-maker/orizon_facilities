@@ -40,14 +40,21 @@ export function Servicos() {
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow="O que fazemos" title="Quatro serviços, uma gestão só." onDark />
 
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {/*
+          aspect-video (16:9), não 4:5: as fotos mostram cenas com pessoas
+          espalhadas horizontalmente (aperto de mão, portaria com catraca).
+          Um recorte 4:5 (mais alto que largo) cortaria uma das pessoas fora
+          do quadro. 16:9 fica perto da proporção nativa dessas fotos —
+          quase nenhum recorte de object-cover.
+        */}
+        <div className="mt-14 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
           {servicos.map((servico, i) => (
             <Reveal key={servico.nome} className="group">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-md">
+              <div className="relative aspect-video overflow-hidden rounded-md">
                 <img
                   src={`/images/${servico.imagem}.webp`}
                   srcSet={`/images/${servico.imagem}-500.webp 500w, /images/${servico.imagem}.webp 800w`}
-                  sizes="(min-width: 1024px) 23vw, (min-width: 640px) 47vw, 90vw"
+                  sizes="(min-width: 1280px) 23vw, (min-width: 640px) 47vw, 90vw"
                   alt=""
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"

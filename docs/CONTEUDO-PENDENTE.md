@@ -53,5 +53,6 @@ Reclame Aqui).
 
 ## Imagens
 
-- [ ] Ver `PROMPTS-IMAGENS.md` — hoje a página usa uma foto de banco de
-  imagens (Pexels) como placeholder no hero.
+Resolvido — hero e os 4 cards de serviço usam imagens de marca definitivas
+(ver `CREDITOS-IMAGENS.md`). `PROMPTS-IMAGENS.md` fica só como referência caso
+queira gerar variações no futuro.
