@@ -1,3 +1,11 @@
+# Build (Vite / Node)
+node_modules/
+dist/
+dist-ssr/
+*.local
+.vscode/*
+!.vscode/extensions.json
+
 # Claude Code — local settings (preferências pessoais não devem ir pro git)
 .claude/settings.local.json
 

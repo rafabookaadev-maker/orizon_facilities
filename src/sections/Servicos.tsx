@@ -1,0 +1,75 @@
+import { Reveal } from '../components/Reveal';
+import { SectionHeading } from '../components/SectionHeading';
+
+/**
+ * O 4º serviço se chama "Controle de Acesso e Monitoramento", não
+ * "Segurança Patrimonial". Segurança privada/vigilância é atividade
+ * regulada pela Lei nº 14.967/2024 e exige autorização de funcionamento da
+ * Polícia Federal — a Orizon não possui essa autorização hoje. Termos como
+ * "vigilância", "ronda" e "segurança patrimonial" não devem ser usados em
+ * nenhum lugar da página enquanto isso não mudar (ver docs/CONTEUDO-PENDENTE.md).
+ */
+const servicos = [
+  {
+    nome: 'Limpeza e Conservação',
+    texto:
+      'Áreas comuns impecáveis todos os dias, com equipe fixa, produtos e equipamentos por nossa conta.',
+    imagem: 'servico-limpeza',
+  },
+  {
+    nome: 'Portaria',
+    texto:
+      'Porteiros treinados em recepção, triagem de visitantes e procedimento de emergência, 24h.',
+    imagem: 'servico-portaria',
+  },
+  {
+    nome: 'Jardinagem e Paisagismo',
+    texto: 'Poda, corte, adubação e irrigação em calendário fixo, não sob demanda.',
+    imagem: 'servico-jardinagem',
+  },
+  {
+    nome: 'Controle de Acesso e Monitoramento',
+    texto: 'Triagem de visitantes e monitoramento de câmeras com procedimento escrito.',
+    imagem: 'servico-acesso',
+  },
+];
+
+export function Servicos() {
+  return (
+    <section className="bg-navy px-6 py-24">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading eyebrow="O que fazemos" title="Quatro serviços, uma gestão só." onDark />
+
+        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {servicos.map((servico, i) => (
+            <Reveal key={servico.nome} className="group">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-md">
+                <img
+                  src={`/images/${servico.imagem}.webp`}
+                  srcSet={`/images/${servico.imagem}-500.webp 500w, /images/${servico.imagem}.webp 800w`}
+                  sizes="(min-width: 1024px) 23vw, (min-width: 640px) 47vw, 90vw"
+                  alt=""
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-navy from-10% via-navy/20 via-40% to-transparent"
+                  aria-hidden="true"
+                />
+                <span
+                  className="absolute bottom-3 left-4 font-display text-3xl font-bold text-gold"
+                  aria-hidden="true"
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+              </div>
+
+              <h3 className="mt-5 font-display text-lg font-bold text-offwhite">{servico.nome}</h3>
+              <p className="mt-2 text-sm text-graymid">{servico.texto}</p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
