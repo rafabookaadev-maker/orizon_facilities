@@ -54,9 +54,9 @@ export function Hero() {
         sai da tela — ver WhatsAppFab.tsx.)
       */}
       <div className="relative flex flex-1 items-start sm:items-center">
-        <div className="mx-auto w-full max-w-6xl px-6 pt-10 pb-2 sm:py-24">
+        <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
           <div className="max-w-2xl border-l-4 border-gold pl-6">
-            <p className="mb-2 font-display text-sm font-bold tracking-[0.25em] text-gold uppercase">
+            <p className="mb-4 font-display text-sm font-bold tracking-[0.25em] text-gold uppercase sm:mb-2">
               Serviços Condominiais
             </p>
 
@@ -65,12 +65,12 @@ export function Hero() {
               <span className="text-gold">Nós cuidamos de toda a gestão.</span>
             </h1>
 
-            <p className="mt-3 max-w-xl text-base text-offwhite/85 sm:mt-6 sm:text-lg">
+            <p className="mt-5 max-w-xl text-base text-offwhite/85 sm:mt-6 sm:text-lg">
               Limpeza, portaria, jardinagem e controle de acesso com equipe própria da Orizon,
               escala coberta e documentação trabalhista auditada mês a mês.
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
+            <div className="mt-8 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
               <a
                 href="#contato"
                 className="group inline-flex items-center gap-2 rounded-lg bg-gold px-5 py-2.5
